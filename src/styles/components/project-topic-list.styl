@@ -1,0 +1,37 @@
+@import '../general/typography.styl'
+@import '../general/color.styl'
+@import '../general/button.styl'
+@import '../general/main-page.styl'
+@import '../general/section-text.styl'
+@import '../general/box-sizing.styl'
+
+:host
+  display block
+
+.list-grid
+  display grid
+  grid-template-columns 200px 1fr 200px
+  grid-template-rows 30px 150px 1fr 62px
+  height 100vh
+  grid-template-areas ". . ." ". header ." ". main ." "footer footer footer"
+
+
+.header
+  grid-area header
+  color $dark
+
+
+.main
+  grid-area main
+
+.footer
+  grid-area footer
+  display grid
+  grid-template-columns 200px 1fr 200px
+  grid-template-rows 1fr
+  background $solitude
+  grid-template-areas ". footer-copy ."
+  box-shadow 0 -4px 4px 0 rgba(0, 0, 0, 0.1)
+
+.paragraph
+  line-height 15px

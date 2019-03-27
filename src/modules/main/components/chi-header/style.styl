@@ -1,0 +1,248 @@
+@import '../../../../styles/general/color.styl';
+// @import '../../../../styles/general/';
+// @import '~settings/_variables.styl';
+// @import '~objects/_container.styl';
+
+:host
+  display: block
+
+.venue-icon
+  vertical-align: middle;
+  height: 28px;
+  margin: 0 10px;
+
+.fixed-phone
+  position: absolute;
+  top: 72px;
+  left: 30px;
+  right: 30px;
+  background: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  display: none;
+  z-index: 5000;
+  overflow: auto;
+
+.navigation
+
+  .nav-list
+    list-style-type: none
+    margin: 0;
+    padding: 0;
+
+  .nav-list-2
+    list-style-type: none
+
+  .desktop
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+  .list-item
+    margin: 0 10px;
+    font-size: 90%;
+    list-style-type: none
+
+    .anchor
+      color: inherit
+      text-decoration: none;
+
+    .anchor:hover
+      text-decoration: underline;
+
+  .search-item
+    flex: 1
+    text-align: right
+
+    @media screen and (max-width: 600px)
+      margin: 0;
+
+  .schedule
+    @media screen and (max-width: 950px)
+      display: none;
+
+  .phone
+    display: none
+
+    @media screen and (max-width: 950px)
+      display: block
+
+    @media screen and (max-width: 600px)
+      margin: 0;
+
+  .schedule-phone
+    padding: 10px 0;
+
+.icon
+  width: 25px;
+  height: 25px;
+
+.nav-button
+  margin: 10px 20px;
+  background: none;
+  fill: $dark;
+  color: $dark;
+  border: none;
+  cursor: pointer;
+
+  @media screen and (max-width: 650px)
+    margin: 10px 0;
+
+  &.hidden
+    display: none;
+
+  &:hover
+    background: $dark;
+    color: $light;
+    fill: $light;
+
+.search-container
+  @media screen and (max-width: 950px)
+    .search
+      width: 300px
+
+  @media screen and (max-width: 740px)
+    .search
+      width: 200px
+
+  @media screen and (max-width: 570px)
+    .search
+      width: auto
+
+  @media screen and (max-width: 540px)
+    .search
+      width: 150px
+
+.filter-button
+  border: 1px solid black;
+  background: $brand-green;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 90%;
+  float: right;
+
+.search-button
+  border: 1px solid black;
+  background: $brand-green;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 90%;
+  @media screen and (max-width: 520px)
+    display: none
+
+
+.algolia
+  width: 150px;
+  vertical-align: middle;
+  margin-right: 10px;
+
+//   @media screen and (max-width: 860px)
+//     display: none
+
+// .algolia-icon
+//   display: none
+//   height: 30px;
+//   vertical-align: middle;
+//   margin-right: 10px;
+//   @media screen and (max-width: 860px)
+//     display: inline-block
+
+.search-container
+  @media screen and (max-width: 520px)
+    display: flex;
+    align-items: center;
+
+    .search
+      flex: 1
+
+  @media screen and (max-width: 365px)
+    .search
+      width: 80px
+
+  @media screen and (max-width: 320px)
+    .search
+      width: 60px
+
+  @media screen and (max-width: 300px)
+    .search
+      width: 40px
+
+.search-button-icon
+  background: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 90%;
+  display: none
+
+  .icon
+    fill: $brand-green;
+
+  @media screen and (max-width: 520px)
+    display: inline-block
+    padding: 0
+
+.filter-container
+
+  position: absolute;
+  top: 72px;
+  left: 30px;
+  right: 30px;
+  // bottom: 20px;
+  overflow: hidden;
+  max-height: calc(100vh - 150px);
+  background: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  z-index: 5000;
+  display: none;
+
+  .filter-bottom-area
+    position: absolute;
+    background: white;
+    padding: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translate3D(0px, 0px, 1px);
+
+  .filter-content
+    padding: 20px
+    padding-bottom: 120px;
+    max-height: calc(100vh - 150px);
+    overflow: auto;
+
+  .filter-title
+    margin: 0
+
+  .filter-grid
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr 1fr
+
+    @media screen and (max-width: 1000px)
+      grid-template-columns: 1fr 1fr 1fr
+
+    @media screen and (max-width: 770px)
+      grid-template-columns: 1fr 1fr
+
+    @media screen and (max-width: 550px)
+      grid-template-columns: 1fr
+
+    .checkbox-container
+      padding: 10px 20px;
+      font-size: 80%
+
+      @media screen and (max-width: 550px)
+        padding: 5px 20px
+
+      @media screen and (max-height: 500px)
+        padding: 10px 10px
+
+.search
+  padding: 10px
+  font-size: 100%
+  border: 2px solid $brand-green;
+  border-radius: 10px;
+  margin-right: 10px;

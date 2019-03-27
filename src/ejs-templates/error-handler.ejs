@@ -1,0 +1,29 @@
+<script>
+  // Adding Namespace
+  window.SPALite = {};
+
+  // Error catcher
+  window.onerror = function (message, source, lineno, colno, err) {
+    try {
+      if (window.ga) {
+        ga('send', 'exception', {
+          exDescription: message,
+          exFatal: true
+        })
+      }
+      if (!window.Raven && window.RavenErrorList) {
+        window.RavenErrorList.push(err || new Error(message, source, lineno));
+      }
+
+      if (document.querySelector('.core-lite-loader').style.opacity !== 0) {
+        document.querySelector('.loader-text').innerHTML =
+          "There's seems to be an error in processing the core script." +
+          "This will not work on IE 11 below, Safari 9 below, Chrome 58 below, and browsers from Android 6 (Lollipop) below." +
+          " If you are using such browsers, please upgrade to your latest browsers now.";
+      }
+    } catch (e) {
+      console.error(err)
+      console.error(e)
+    }
+  }
+</script>

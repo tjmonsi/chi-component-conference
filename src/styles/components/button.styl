@@ -1,0 +1,111 @@
+@import '../general/color.styl'
+@import '../general/shadow.styl'
+@import '../general/typography.styl'
+
+button-base()
+  body-base($light)
+  position relative
+  text-decoration none
+  text-align center
+  cursor pointer
+  background $azure-radiance
+  border none
+  padding 12px 24px
+  // margin 12px 0
+  shadow(1)
+
+  &::before
+    /* Position the pseudo-element. */
+    content ' '
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+
+    /* Create the box shadow at expanded size. */
+    shadow(2)
+
+    /* Hidden by default. */
+    opacity 0
+    transition opacity 200ms
+
+
+  &:hover
+    text-decoration none
+
+  &:focus, &:active
+    box-shadow none
+
+  &:hover::before
+    opacity 1
+
+  &:focus::before, &:active::before
+    opacity 0
+
+  &[disabled]
+    color $gray
+    background $light
+
+button-class()
+  .button
+    button-base()
+    display block
+  button.button
+      width 100%
+
+button-inline-class()
+  .button-inline
+    button-base()
+    display inline-block
+
+button-base-ghost()
+  button-base()
+  background white
+  color $teal
+
+button-outline-positive()
+  body-base($mountain-meadow)
+  position relative
+  text-decoration none
+  text-align center
+  cursor pointer
+  border 1px solid $mountain-meadow
+  border-radius 5px
+  padding 10px 18px
+  margin 0 0 0 24px
+  transition all 0.3s ease
+
+  &:hover
+    transition all 0.3s ease
+    background $mountain-meadow
+    body-base($light)
+
+button-outline-negative()
+  body-base($flamingo)
+  position relative
+  text-decoration none
+  text-align center
+  cursor pointer
+  border 1px solid $flamingo
+  border-radius 5px
+  padding 10px 18px
+  margin 0 0 0 24px
+  transition all 0.3s ease
+
+  &:hover
+    transition all 0.3s ease
+    background $flamingo
+    body-base($light)
+
+button-class-positive()
+  .button-positive
+      button-outline-positive()
+  .button-positive.loading
+      button-outline-postive()
+      margin 0
+
+
+button-class-negative()
+  .button-negative
+      button-outline-negative()

@@ -1,0 +1,67 @@
+{
+  "headers": [
+    {
+      "source": "**/*.js",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/create-account",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/forgot-password",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/loading",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/verify",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/projects",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/create-project",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/projects/*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/projects/*/create-topic",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/projects/*/topics/*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/projects/*/topics/*/sentiment",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/projects/*/topics/*/volume",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/projects/*/topics/*/settings",
+      "destination": "/index.html"
+    }
+  ]
+}

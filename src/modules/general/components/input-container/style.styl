@@ -1,0 +1,25 @@
+@import '../../../../styles/general/typography.styl'
+@import '../../../../styles/general/color.styl'
+
+:host
+  display block
+  padding 7px 0
+
+::slotted(label)
+  display block
+  padding 0 0 6px
+
+::slotted(input), ::slotted(select), ::slotted(textarea)
+  display block
+  width calc(100% - 24px)
+  border none
+  border-bottom 1px solid #000
+  padding 12px
+  font-size 1rem
+
+
+::slotted(select)
+  background white
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;

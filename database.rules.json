@@ -1,0 +1,97 @@
+{
+  "rules": {
+    "project-dashboards": {
+      ".read": true
+    },
+    "socials": {
+      ".read": true
+    },
+    "tokens": {
+      ".read": true
+    },
+    "topics": {
+      ".read": true
+    },
+    "pricing-tiers": {
+      "data": {
+        ".read": true
+      }
+    },
+    "accounts": {
+      "data": {
+        "$uid": {
+          ".read": "auth != null && (auth.uid == $uid)"
+        }
+      },
+      "lists": {
+        "user-projects": {
+          "$uid": {
+            ".read": "auth != null && (auth.uid == $uid)"
+          }
+        },
+        "user-owned-projects": {
+          "$uid": {
+            ".read": "auth != null && (auth.uid == $uid)"
+          }
+        },
+        "user-editable-projects": {
+          "$uid": {
+            ".read": "auth != null && (auth.uid == $uid)"
+          }
+        }
+      }
+    },
+    "projects": {
+      "data": {
+        "$projectId": {
+          ".read": "auth != null && (root.child('accounts/lists/user-projects').child(auth.uid).child($projectId).exists())"
+        }
+      }
+    },
+    "project-accounts": {
+      "data": {
+        "$projectId": {
+          ".read": "auth != null && (root.child('accounts/lists/user-projects').child(auth.uid).child($projectId).exists())"
+        }
+      }
+    },
+    "project-topics": {
+      "$projectId": {
+        ".read": "auth != null"
+      }
+    },
+    "project-texts": {
+      "data": {
+        "$projectId": {
+          ".read": "auth != null"
+        }
+      }
+    },
+    "project-data-text-results": {
+      "data": {
+        "$projectId": {
+          ".read": "auth != null"
+        }
+      }
+    },
+    "project-data-texts": {
+      "data": {
+        "$projectId": {
+          ".read": "auth != null",
+          "$topicId": {
+          	"$socialId": {
+              ".indexOn": ["dateCreated"]
+            }
+          }
+        }
+      }
+    },
+    "users": {
+      "data": {
+        "$uid": {
+          ".read": "auth != null && (auth.uid == $uid)"
+        }
+      }
+    }
+  }
+}

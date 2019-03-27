@@ -1,0 +1,19 @@
+<section class="core-lite-loader">
+  <div class="loader-center">
+    <p class="loader-text">
+    </p>
+    <noscript>
+      <p class="loader-text-no-script">
+        This Web App is a Single Page Application.
+        Thus, it needs you to turn on Javascript.
+      </p>
+    </noscript>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var text = document.querySelector('.loader-text')
+    text.textContent = 'Loading...'
+  })();
+</script>

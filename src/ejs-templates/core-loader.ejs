@@ -1,0 +1,43 @@
+<!--
+  Use the webcomponents-loader script which will feature detect which Web
+  Components features are missing and lazy load the appropriate polyfills.
+  When we hear the 'WebComponentsReady' event from the polyfill bundle we can
+  insert our 'bundle.js'.
+-->
+<script>
+  (function () {
+    document.addEventListener('WebComponentsReady', function componentsReady() {
+      document.removeEventListener('WebComponentsReady', componentsReady, false);
+      var text = "There's seems to be an error in loading the core script. " +
+        "Please try again later.";
+      var refScript = document.body.getElementsByTagName('script')[0];
+      var script = document.createElement('script');
+      script.async = true
+      script.src = '/core.<%= package.version %>.js';
+      script.crossOrigin = 'anonymous';
+      script.setAttribute('nomodule', true);
+      script.addEventListener('error', function(error) {
+        if (document.querySelector('.core-lite-loader').style.opacity !== 0) {
+          document.querySelector('.loader-text').innerHTML = text
+        }
+      });
+      refScript.parentNode.insertBefore(script, refScript);
+
+      <% if (options.dev) { %>
+      var scriptModule = document.createElement('script');
+      scriptModule.async = true
+      scriptModule.src = '/module.core.<%= package.version %>.js';
+      scriptModule.crossOrigin = 'anonymous';
+      scriptModule.type = 'module';
+      scriptModule.addEventListener('error', function(error) {
+        if (document.querySelector('.core-lite-loader').style.opacity !== 0) {
+          document.querySelector('.loader-text').innerHTML = text
+        }
+      });
+      refScript.parentNode.insertBefore(scriptModule, refScript);
+      <% } else { %>
+        window.dispatchEvent(new window.CustomEvent('window-core-start'));
+      <% } %>
+    }, false)
+  })()
+</script>

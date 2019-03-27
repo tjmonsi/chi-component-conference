@@ -1,0 +1,24 @@
+<% if (app.sentry && !htmlWebpackPlugin.options.dev) { %>
+  <script>
+    (function () {
+      var sentry = document.createElement('script');
+      sentry.src = '/vendor/sentry.<%= package.version %>.js';
+      sentry.crossOrigin = 'anonymous';
+      sentry.async = 'true';
+      window.RavenErrorList = [];
+      sentry.addEventListener('load', function() {
+        if (window.Raven) {
+
+          // window.Raven.config('<%= app.sentry %>').install();
+          if (window.RavenErrorList) {
+            for (var ravenIndex = 0; ravenIndex < window.RavenErrorList.length; ravenIndex++) {
+              console.log(window.RavenErrorList[ravenIndex])
+              window.Raven.captureException(window.RavenErrorList[ravenIndex]);
+            }
+          }
+        }
+      });
+      document.body.appendChild(raven);
+    })();
+  </script>
+<% } %>

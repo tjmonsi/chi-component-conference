@@ -1,0 +1,15 @@
+<main role="main">
+  <core-lite>
+    <router-lite><% for (let i in routes) {%>
+      <route-data-lite route="<%= routes[i].route %>"></route-data-lite><% } %>
+    </router-lite>
+    <template-loader-lite><% for (var i in routes) {%>
+      <template pattern="<%= routes[i].route %>">
+        <<%= routes[i].page %>></<%= routes[i].page %>>
+      </template><% } %>
+    </template-loader-lite>
+  </core-lite>
+</main>
+
+<snackbar-lite class="snackbar-lite">
+</snackbar-lite>

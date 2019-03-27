@@ -1,0 +1,81 @@
+@import '../../../../styles/general/color.styl';
+
+:host
+  display: block
+
+.github-link
+  color: inherit;
+
+.venue-icon
+  vertical-align: middle;
+  height: 28px;
+  margin: 0 10px;
+
+.center-container
+  border: 1px solid $brand-green;
+  padding: 20px;
+  margin: 20px 0;
+  font-size: 80%;
+
+  &.small-font
+    font-size: 80%;
+
+.center-container-center
+  border: 1px solid $brand-green;
+  padding: 10px;
+  max-width: 1170px;
+  margin: 10px auto;
+
+  &.small-font
+    font-size: 70%;
+
+.searching
+  padding: 40px;
+  text-align: center;
+  margin: 20px
+
+.chi-day-item[hidden]
+  display: none;
+
+.on-top
+  position: relative;
+
+.fixed
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  display: none;
+  z-index: 4000;
+
+.footer
+  text-align: center;
+  position: fixed;
+  padding: 20px;
+  bottom: 0
+  left: 0
+  right: 0
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background: $light;
+
+.map
+  margin: 20px;
+  min-width: 800px;
+  border: 1px solid black;
+
+.maps-container
+  text-align: center;
+  // padding: 5px;
+  overflow: auto;
+
+.mapouter
+  overflow:hidden;
+  height:500px;
+  width:100%;
+
+.gmap_canvas
+  background:none!important;
+  height:500px;
+  width:100%;

@@ -1,0 +1,12 @@
+<% if (app.googleAnalytics && !htmlWebpackPlugin.options.dev) { %>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%= app.googleAnalytics %>"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.gtagId = '<%= app.googleAnalytics %>';
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', window.gtagId);
+</script>
+<% } %>

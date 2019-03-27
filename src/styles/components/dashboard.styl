@@ -1,0 +1,41 @@
+@import '../general/typography.styl'
+@import '../general/color.styl'
+@import '../general/button.styl'
+@import '../general/main-page.styl'
+@import '../general/section-text.styl'
+@import '../general/box-sizing.styl'
+
+:host
+  display block
+
+.layout
+  display grid
+  grid-template-columns 300px 1fr
+  grid-template-rows auto minmax(100vh, 1fr)
+  grid-template-areas "sidebar header"\
+                      "sidebar main"
+
+  @media screen and (max-width: 800px)
+    grid-template-columns 200px 1fr
+
+  @media screen and (max-width: 700px)
+    display block
+
+.header
+  grid-area header
+  background $blue
+  color $light
+  padding 24px
+
+.sidebar
+  grid-area sidebar
+  // background $gray
+  color $light
+  padding 24px
+
+.main
+  grid-area main
+  padding 24px
+
+.block
+  grid-column 1 / -1
