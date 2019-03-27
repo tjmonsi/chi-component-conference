@@ -153,7 +153,7 @@ const template = (html, self) => function () {
 
       ${!maps ? html`
         ${schedule && schedule.length ? schedule.map((item, index) => html`
-          <chi-day class="chi-day-item" .day="${item}" .scheduleIndex="${index}"></chi-day>
+          <chi-day class="chi-day-item" .day="${item}" .scheduleIndex="${index}" ?hidden=${item.hidden}></chi-day>
         `) : ''}
       ` : html`
         <!-- add maps here -->

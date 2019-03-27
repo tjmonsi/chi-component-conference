@@ -67,7 +67,6 @@ const template = (html, self) => function () {
         </p>
         ${publication ? html`
           ${!showInformation ? html`
-            ${console.log(showInformation)}
             ${publication.abstract ? html`
               <p>
                 <a class="abstract-anchor" @click="${_showAbstract.bind(this)}">

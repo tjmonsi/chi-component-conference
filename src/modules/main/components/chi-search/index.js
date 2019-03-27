@@ -85,7 +85,7 @@ class Component extends GetVenuesMixin(GetFilteredSearchMixin(GetFilteredVenuesM
   _checkFilteredVenues (filteredVenues) {
     if (filteredVenues && filteredVenues.length && filteredVenues.indexOf('all') < 0) {
       history.pushState({}, '', `?${this.params.search ? `search=${encodeURI(this.params.search)}&` : ''}filteredVenues=${encodeURI(filteredVenues.join(','))}`);
-      dispatchEvent(new CustomEvent('location-changed'));
+      dispatchEvent(new CustomEvent('location-change'));
     }
     this._storeUpdate();
   }
@@ -119,6 +119,8 @@ class Component extends GetVenuesMixin(GetFilteredSearchMixin(GetFilteredVenuesM
       }
       store.schedule[i].hidden = hidden;
     }
+    // window.dispatchEvent(new window.CustomEvent('chi-update-schedule'));
+    // console.log('update');
   }
 
   _updateFilteredVenues (filteredVenues) {
@@ -139,21 +141,42 @@ class Component extends GetVenuesMixin(GetFilteredSearchMixin(GetFilteredVenuesM
       this._filterVenues(this.filteredVenues);
       window.dispatchEvent(new window.CustomEvent('chi-update-query'));
     }
-    // this._queryResultChanged(this.queryResults);
+    this._queryResultChanged(this.queryResults);
   }
 
   _checkParams (params, filteredSearch, currentScheduleId) {
     this.maps = !!params.maps;
     this.room = params.room || null;
     this.search = params.search;
+
+    // reset
+    for (const i in store.schedule) {
+      store.schedule[i].hidden = false;
+      store.schedule[i].expand = false;
+    }
+
+    for (const i in store.session) {
+      store.session[i].hidden = false;
+    }
+
+    for (const i in store.timeslot) {
+      store.timeslot[i].hidden = false;
+    }
+
+    store.showPublications = [];
+
+    console.log(store);
+
     if (params.filteredVenues) {
       this._updateFilteredVenues(params.filteredVenues.split(','));
     }
+
     this._queryChanged(params.search, filteredSearch);
+
+    window.dispatchEvent(new CustomEvent('chi-update-schedule'));
   }
 
   async _queryChanged (query, filteredSearch) {
-    if (!query) return;
     this.searching = true;
     this.showFilterWarning = false;
     if (query) window.scroll(0, 0);

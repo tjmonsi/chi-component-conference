@@ -153,7 +153,7 @@ class Component extends TemplateLite(GetVenuesMixin(GetFilteredSearchMixin(GetFi
   search () {
     const query = this.shadowRoot.querySelector('[name=search]').value;
     history.pushState({}, '', query ? `?search=${query}` : '?sessionId=all');
-    dispatchEvent(new CustomEvent('location-changed'));
+    window.dispatchEvent(new CustomEvent('location-change'));
   }
 
   clear () {
@@ -162,7 +162,7 @@ class Component extends TemplateLite(GetVenuesMixin(GetFilteredSearchMixin(GetFi
       if (q !== 'search' && q !== 'filteredVenues') queryParams.push(`${q}=${this.params[q]}`);
     }
     history.pushState({}, '', `?${queryParams.join('&')}`);
-    dispatchEvent(new CustomEvent('location-changed'));
+    dispatchEvent(new CustomEvent('location-change'));
 
     updateState('fitered-venues', ['all']);
     updateState('fitered-search', ['all']);

@@ -142,6 +142,7 @@ class Component extends TemplateLite(ObserversLite(HTMLElement)) {
     }
     schedule.sort((i, j) => (i.index - j.index));
     this.schedule = schedule;
+    console.log(this.schedule);
     const loadingScreen = document.querySelector('#loading-screen');
     if (loadingScreen) {
       loadingScreen.style.display = 'none';

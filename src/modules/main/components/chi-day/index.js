@@ -48,7 +48,7 @@ class Component extends TemplateLite(GetQueryMixin(ObserversLite(HTMLElement))) 
 
   static get observers () {
     return [
-      '_checkParams(params, day, params.*)'
+      '_checkParams(params, day)'
     ];
   }
 
@@ -66,6 +66,7 @@ class Component extends TemplateLite(GetQueryMixin(ObserversLite(HTMLElement))) 
     }
     timeslots.sort((i, j) => (i.value - j.value));
     this.timeslots = timeslots;
+    console.log(day.hidden);
     this.hidden = day.hidden;
   }
 
@@ -81,7 +82,7 @@ class Component extends TemplateLite(GetQueryMixin(ObserversLite(HTMLElement))) 
       this._showDay();
       setTimeout(() => {
         history.pushState({}, '', `?`);
-        dispatchEvent(new CustomEvent('location-changed'));
+        dispatchEvent(new CustomEvent('location-change'));
       }, 1000);
     }
   }

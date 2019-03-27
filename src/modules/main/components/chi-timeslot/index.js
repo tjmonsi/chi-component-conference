@@ -181,7 +181,7 @@ class Component extends TemplateLite(GetQueryMixin(ObserversLite(HTMLElement))) 
     };
 
     history.pushState({}, '', `?sessionId=${encodeURI($key)}`);
-    dispatchEvent(new CustomEvent('location-changed'));
+    dispatchEvent(new CustomEvent('location-change'));
 
     const v = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 

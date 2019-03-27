@@ -5,7 +5,7 @@ const getConference = require('./utils/get-conference');
 const algoliasearch = require('algoliasearch');
 const algoliaConfig = require('../configs/algolia.config.json');
 const client = algoliasearch(algoliaConfig.key, algoliaConfig.secret);
-console.log(conf)
+console.log(conf);
 const index = client.initIndex(`chi-index-${conf}`);
 const db = admin.database();
 

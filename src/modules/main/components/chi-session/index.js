@@ -179,7 +179,7 @@ class Component extends TemplateLite(GetQueryMixin(ObserversLite(HTMLElement))) 
       this._showSession();
       // setTimeout(() => {
       //   history.pushState({}, '', `?`);
-      //   dispatchEvent(new CustomEvent('location-changed'));
+      //   dispatchEvent(new CustomEvent('location-change'));
       // }, 5000);
     }
   }

@@ -64,7 +64,7 @@ class Component extends TemplateLite(ChiRoomMixin(PropertiesLite(HTMLElement))) 
   openMap () {
     if (window.innerWidth <= 650) {
       history.pushState({}, '', `?maps=true&room=${this.room.room}`);
-      dispatchEvent(new CustomEvent('location-changed'));
+      dispatchEvent(new CustomEvent('location-change'));
       return;
       // return window.open(`https://chi2018.acm.org/attending/stream/?timeslot=${this.timeslotRealId}&room=${this.session.roomName}`, '_blank');
       // return window.open(`https://${this.publication.youtubeUrl}`, '_blank');
