@@ -26,7 +26,7 @@ const template = (html, self) => function () {
       `}
     </h1>
     ${timeslots && timeslots.length ? timeslots.map(item => html`
-      <chi-timeslot class="chi-timeslot-item" .timeslotId="${item.$key}" .scheduleIndex="${scheduleIndex}" .dayString="${day.dayString}" .dateString="${_getDateString(day.dateString)}"></chi-timeslot>
+      <chi-timeslot class="chi-timeslot-item" .timeslotId="${item.$key}" .scheduleIndex="${scheduleIndex}" .dayString="${day.dayString}" .dateString="${_getDateString(day.dateString)}" ?hidden=${item.hidden}></chi-timeslot>
     `) : ''}
   ` : '';
 }.bind(self)();

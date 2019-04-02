@@ -83,7 +83,7 @@ const template = (html, self) => function () {
           <!-- <div class="sessions"> -->
             ${sessions && sessions.length && sessions.map((item, index) => html`
 
-              <chi-session .sessionId="${item.$key}" .index=${index} class="chi-session-item ${_timeslotColorClass(scheduleIndex)}-item" .timeslotId="${timeslotId}" ?force-close="${item.forceClose}" ?show-publications="${item.showPublications}" .targetEl="${item.targetEl}" @open-duplicate="${_duplicate.bind(this)}" @close-duplicate="${_closeDuplicate.bind(this)}" .dayString="${dayString}" .dateString="${dateString}" .timeString="${timeslot.time}" .timeslotRealId="${_getTimeslotRealId(timeslot.conferenceTimeslotId)}">
+              <chi-session .sessionId="${item.$key}" .index=${index} class="chi-session-item ${_timeslotColorClass(scheduleIndex)}-item" .timeslotId="${timeslotId}" ?force-close="${item.forceClose}" ?show-publications="${item.showPublications}" .targetEl="${item.targetEl}" @open-duplicate="${_duplicate.bind(this)}" @close-duplicate="${_closeDuplicate.bind(this)}" .dayString="${dayString}" .dateString="${dateString}" .timeString="${timeslot.time}" .timeslotRealId="${_getTimeslotRealId(timeslot.conferenceTimeslotId)}" ?hidden=${item.hidden}>
             </chi-session>
             `)}
           <!-- </div> -->

@@ -26,8 +26,8 @@ module.exports = async (admin, config, authorList, conf, conferenceId, publicati
     updates[config.dataPath(config.author, authorId) + '/lastName'] = data.lastName;
     updates[config.dataPath(config.author, authorId) + '/displayName'] = data.displayName;
 
-    updates[config.dataPath(config.author, authorId) + '/primarySet/' + publicationId] = primary;
-    updates[config.dataPath(config.author, authorId) + '/secondarySet/' + publicationId] = secondary;
+    updates[config.dataPath(config.author, authorId) + '/primary/'] = primary;
+    updates[config.dataPath(config.author, authorId) + '/secondary/'] = secondary;
     authors.push({ authorId, rank: author.rank, publicationId });
   }
 };

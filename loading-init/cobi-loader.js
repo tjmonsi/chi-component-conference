@@ -1,12 +1,12 @@
 const cobiConfig = require('../configs/server/cobi.config.json');
 const fs = require('fs');
-const http = require('http');
-const url = `http://cobi.cs.jmu.edu/export.php?user=${cobiConfig.user}&password=${encodeURI(cobiConfig.password)}&`;
+const https = require('https');
+// const url = ``;
 
 const download = (name) => {
   const filename = `./files/${name}.json`;
   const file = fs.createWriteStream(filename);
-  return new Promise((resolve, reject) => http.get(`${url}file=${name}`, (response) => {
+  return new Promise((resolve, reject) => https.get(`https://fbr.me/data/raw/${name}.json?authKey=${cobiConfig.auth}`, (response) => {
     response.pipe(file);
     file.on('finish', function () {
       file.close(resolve); // close() is async, call cb after close completes.
