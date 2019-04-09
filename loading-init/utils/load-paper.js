@@ -1,5 +1,6 @@
-const getExistingKey = require('./get-existing-key');
+// const getExistingKey = require('./get-existing-key');
 const loadAuthor = require('./load-author');
+const doiFlag = false;
 
 module.exports = async (admin, config, paperList, conf, conferenceId) => {
   console.log('loading Papers...');
@@ -19,14 +20,16 @@ module.exports = async (admin, config, paperList, conf, conferenceId) => {
       title: paper.title,
       abstract: paper.abstract,
       conferencePublicationId: conferenceId + '::' + paper.id,
-      acmLink: paper.acmLink,
+      doi: paper.doi,
+      doiFlag,
       shortText: paper.cbStatement || '',
       venue: paper.venue,
       subtype: paper.subtype.toLowerCase(),
       award: paper.award,
       hm: paper.hm,
       processed: false,
-      conferenceId
+      conferenceId,
+      previewVideo: paper.previewVideo
     };
     updates[config.dataPath(config.publication, publicationId)] = data;
     // console.log(updates)
